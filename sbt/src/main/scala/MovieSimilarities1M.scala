@@ -108,14 +108,14 @@ object MovieSimilarities1M {
     println("\nLoading movie names...")
     val nameDict = loadMovieNames()
     
-    val data = sc.textFile("s3n://sundog-spark/ml-1m/ratings.dat")
+    val data = sc.textFile("s3n://sparkscala-dataset/ml-1m/ratings.dat")
 
     // Map ratings to key / value pairs: user ID => movie ID, rating
     val ratings = data.map(l => l.split("::")).map(l => (l(0).toInt, (l(1).toInt, l(2).toDouble)))
     
     // Emit every movie rated together by the same user.
     // Self-join to find every combination.
-    val joinedRatings = ratings.join(ratings)   
+    val joinedRatings = ratings.join(ratings)     
     
     // At this point our RDD consists of userID => ((movieID, rating), (movieID, rating))
 
