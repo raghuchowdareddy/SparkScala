@@ -15,7 +15,7 @@ Follow below links to setup the environment in local machine
 1.  SparkScalaCourse
 2.   sbt
 
-###SparkScalaCourse
+### SparkScalaCourse
 
 'SparkScalaCourse' contains sample programmes on Spark with Scala.
  - To Run in Scala IDE follow the steps
